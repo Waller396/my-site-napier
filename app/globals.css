@@ -196,9 +196,20 @@ body {
 }
 
 .fullscreen-video {
-  width: 80%;
-  max-height: 80%;
+  width: min(90vw, 1400px);
+  height: auto;
+  max-height: 85vh;
+  aspect-ratio: auto;
 }
+
+mux-player.fullscreen-video {
+  width: min(90vw, 1400px);
+  height: 85vh;
+  max-height: 85vh;
+  object-fit: contain;
+  --media-object-fit: contain;
+}
+
 
 .close-btn {
   position: absolute;

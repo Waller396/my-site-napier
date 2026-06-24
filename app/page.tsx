@@ -21,7 +21,7 @@ export default function Home() {
           subtitle="Campaign Film"
           image="/images/nowness-16_9-thumb.jpg"
           hoverVideo="/videos/nowness-16_9-preview.mp4"
-          filmVideo="/videos/nowness-16_9-video.mp4"
+          muxPlaybackId="lg6X992KPDNTTea4Tw2Yrkb7bNO4pWN8dJVmMkpKFLY"
         />
 
         <div className="hero-title">
@@ -37,7 +37,7 @@ export default function Home() {
             subtitle="Campaign Film"
             image="/images/adidas-16_9-thumb-v2.jpg"
             hoverVideo="/videos/adidas-16_9-preview.mp4"
-            filmVideo="/videos/adidas-16_9-video.mp4"
+            muxPlaybackId="l9Ip00bQQ52wVcIaIGA2qfUgqaKIO1xhFUmuNwEn01PqU"
           />
           <div className="film-card-text">
             <h3>Adidas</h3>
@@ -51,7 +51,7 @@ export default function Home() {
             subtitle="Campaign Film"
             image="/images/artois-16_9-thumb.jpg"
             hoverVideo="/videos/artois-16_9-preview.mp4"
-            filmVideo="/videos/artois-16_9-video.mp4"
+            muxPlaybackId="GO007buFyVnCzwdqBEKfmQrduGOLPkyXcTgA01Q01K6DNk"
           />
           <div className="film-card-text">
             <h3>Artois</h3>
@@ -65,7 +65,7 @@ export default function Home() {
             subtitle="Campaign Film"
             image="/images/ugg-16_9-thumb.jpg"
             hoverVideo="/videos/ugg-16_9-preview.mp4"
-            filmVideo="/videos/ugg-16_9-video.mp4"
+            muxPlaybackId="ZbMnw8F2or02x01iyQO019Xdw5wZYUJjAbSPVAWHGrXBdU"
           />
           <div className="film-card-text">
             <h3>UGG</h3>
@@ -79,7 +79,7 @@ export default function Home() {
             subtitle="Campaign Film"
             image="/images/nike-16_9-thumb.jpg"
             hoverVideo="/videos/nike-16_9-preview.mp4"
-            filmVideo="/videos/nike-16_9-video.mp4"
+            muxPlaybackId="Povomc7OplHDMN801VmU900xSKeNFyVm22KCq6YtFVVh4"
           />
           <div className="film-card-text">
             <h3>Nike & Palace</h3>
@@ -93,7 +93,7 @@ export default function Home() {
             subtitle="Campaign Film"
             image="/images/gucci-16_9-thumb.jpg"
             hoverVideo="/videos/gucci-16_9-preview.mp4"
-            filmVideo="/videos/gucci-16_9-video.mp4"
+            muxPlaybackId="ARHpI6eC6pa02P02019bPIhrfx92UdtJWDsXYNMPyBRwik"
           />
           <div className="film-card-text">
             <h3>Gucci</h3>
@@ -107,7 +107,7 @@ export default function Home() {
             subtitle="Campaign Film"
             image="/images/evisu-16_9-thumb.jpg"
             hoverVideo="/videos/evisu-16_9-preview.mp4"
-            filmVideo="/videos/evisu-16_9-video.mp4"
+            muxPlaybackId="f00EriRTXQ00OHjHdcRtVMenkE7InAyWTV6MrP7TX2tVI"
           />
           <div className="film-card-text">
             <h3>Evisu</h3>

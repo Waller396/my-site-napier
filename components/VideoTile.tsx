@@ -2,13 +2,15 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import MuxPlayer from "@mux/mux-player-react";
 
 type VideoTileProps = {
   title?: string;
   subtitle?: string;
   image: string;
   hoverVideo: string;
-  filmVideo: string;
+  filmVideo?: string;
+  muxPlaybackId?: string;
 };
 
 export default function VideoTile({
@@ -17,6 +19,7 @@ export default function VideoTile({
   image,
   hoverVideo,
   filmVideo,
+  muxPlaybackId,
 }: VideoTileProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [open, setOpen] = useState(false);
@@ -26,9 +29,7 @@ export default function VideoTile({
     if (!video) return;
 
     video.currentTime = 0;
-
     video.play().catch(() => {});
-
     video.style.opacity = "1";
   };
 
@@ -90,12 +91,24 @@ export default function VideoTile({
             ✕
           </button>
 
-          <video
-            src={filmVideo}
-            autoPlay
-            controls
-            className="fullscreen-video"
-          />
+          {muxPlaybackId ? (
+            <MuxPlayer
+              playbackId={muxPlaybackId}
+              autoPlay
+              metadata={{
+                video_id: muxPlaybackId,
+                video_title: title || "Film",
+              }}
+              className="fullscreen-video"
+            />
+          ) : (
+            <video
+              src={filmVideo}
+              autoPlay
+              controls
+              className="fullscreen-video"
+            />
+          )}
         </div>
       )}
     </>
