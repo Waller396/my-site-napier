@@ -7,7 +7,7 @@ export default function Home() {
     <main className="main-site">
       <nav className="site-nav">
         <Link href="/" className="site-logo">
-          Min-jae Han
+          Borders
         </Link>
 
         <div className="nav-links">
@@ -118,7 +118,7 @@ export default function Home() {
 
       <section className="bio-section">
         <div className="bio-colour">
-          <h2>Min-jae Han</h2>
+          <h2>Biography</h2>
           <p>
             Min-jae Han developed his cinematic voice between Seoul’s independent
             film scene and Berlin’s experimental cinema community. After creating
