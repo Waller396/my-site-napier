@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import MuxPlayer from "@mux/mux-player-react";
 
@@ -23,12 +23,27 @@ export default function VideoTile({
 }: VideoTileProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [open, setOpen] = useState(false);
+  const [canHover, setCanHover] = useState(false);
 
-  const supportsHover = () =>
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  useEffect(() => {
+    const hoverQuery = window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    );
+
+    const updateHoverSupport = () => {
+      setCanHover(hoverQuery.matches);
+    };
+
+    updateHoverSupport();
+    hoverQuery.addEventListener("change", updateHoverSupport);
+
+    return () => {
+      hoverQuery.removeEventListener("change", updateHoverSupport);
+    };
+  }, []);
 
   const handleMouseEnter = () => {
-    if (!supportsHover()) return;
+    if (!canHover) return;
 
     const video = videoRef.current;
     if (!video) return;
@@ -46,6 +61,10 @@ export default function VideoTile({
     video.style.opacity = "0";
   };
 
+  const openFilm = () => {
+    setOpen(true);
+  };
+
   return (
     <>
       <div
@@ -53,10 +72,11 @@ export default function VideoTile({
         role="button"
         tabIndex={0}
         aria-label={`Play ${title || "film"}`}
-        onClick={() => setOpen(true)}
+        onClick={openFilm}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
-            setOpen(true);
+            event.preventDefault();
+            openFilm();
           }
         }}
         onMouseEnter={handleMouseEnter}
@@ -67,18 +87,23 @@ export default function VideoTile({
           alt={title || "Film thumbnail"}
           width={1600}
           height={900}
+          sizes="(max-width: 640px) calc(100vw - 32px),
+                 (max-width: 900px) 50vw,
+                 33vw"
           className="image-fill"
         />
 
-        <video
-          ref={videoRef}
-          src={hoverVideo}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="hover-video"
-        />
+        {canHover && (
+          <video
+            ref={videoRef}
+            src={hoverVideo}
+            muted
+            loop
+            playsInline
+            preload="none"
+            className="hover-video"
+          />
+        )}
 
         {(title || subtitle) && (
           <div className="tile-text">
