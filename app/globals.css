@@ -460,3 +460,39 @@ mux-player.fullscreen-video {
     display: none;
   }
 }
+/* MOBILE HERO - MATCH GRID TILES */
+
+@media (max-width: 640px) {
+  .hero-film {
+    width: calc(100% - 32px);
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    margin: 96px 16px 16px;
+  }
+
+  .hero-film .video-tile {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .hero-film .hover-video {
+    display: none;
+  }
+
+  .hero-title {
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .hero-title h1 {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  .hero-title p {
+    margin-top: 4px;
+    font-size: 0.8rem;
+  }
+}
