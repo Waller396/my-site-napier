@@ -24,7 +24,12 @@ export default function VideoTile({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [open, setOpen] = useState(false);
 
+  const supportsHover = () =>
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   const handleMouseEnter = () => {
+    if (!supportsHover()) return;
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -45,13 +50,21 @@ export default function VideoTile({
     <>
       <div
         className="video-tile"
+        role="button"
+        tabIndex={0}
+        aria-label={`Play ${title || "film"}`}
         onClick={() => setOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            setOpen(true);
+          }
+        }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <Image
           src={image}
-          alt={title || "thumbnail"}
+          alt={title || "Film thumbnail"}
           width={1600}
           height={900}
           className="image-fill"
@@ -63,6 +76,7 @@ export default function VideoTile({
           muted
           loop
           playsInline
+          preload="metadata"
           className="hover-video"
         />
 
@@ -86,6 +100,7 @@ export default function VideoTile({
           <button
             type="button"
             className="close-btn"
+            aria-label="Close film"
             onClick={() => setOpen(false)}
           >
             ✕
@@ -106,6 +121,7 @@ export default function VideoTile({
               src={filmVideo}
               autoPlay
               controls
+              playsInline
               className="fullscreen-video"
             />
           )}

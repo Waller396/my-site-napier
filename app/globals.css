@@ -426,3 +426,37 @@ mux-player.fullscreen-video {
     gap: 22px;
   }
 }
+/* MOBILE FILM TILES */
+
+@media (max-width: 640px) {
+  /* Mobile uses the still image, not the hover preview */
+  .film-grid .hover-video {
+    display: none;
+  }
+
+  /* Show the title over the still image */
+  .film-grid .tile-text {
+    display: block;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    opacity: 1;
+    transform: none;
+    color: white;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  .film-grid .tile-text h3 {
+    font-size: 1rem;
+  }
+
+  .film-grid .tile-text p {
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  /* Prevent duplicate wording beneath the image */
+  .film-grid .film-card-text {
+    display: none;
+  }
+}
