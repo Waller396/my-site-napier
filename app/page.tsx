@@ -1,4 +1,5 @@
 import VideoTile from "@/components/VideoTile";
+import ProfileMenu from "@/components/ProfileMenu";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -162,6 +163,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ProfileMenu />
     </main>
   );
 }
