@@ -97,7 +97,7 @@ body {
 
 .hero-title h1 {
   margin: 0;
-  font-size: clamp(4rem, 13vw, 12rem);
+  font-size: clamp(3rem, 9vw, 8rem);
   font-weight: 600;
   line-height: 0.82;
   text-transform: uppercase;
